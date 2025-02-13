@@ -1,4 +1,4 @@
-INSERT INTO funcionario (nome, data_nascimento, salario, funcao) VALUES
+INSERT INTO people (name, birthdate, salary, function) VALUES
 ('Maria', '2000-10-18', 2009.44, 'Operador'),
 ('João', '1990-05-12', 2284.38, 'Operador'),
 ('Caio', '1961-05-02', 9836.14, 'Coordenador'),
