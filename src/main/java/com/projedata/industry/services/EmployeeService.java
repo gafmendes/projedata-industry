@@ -28,7 +28,7 @@ public class EmployeeService {
 	this.repository = repository;
     }
 
-    public List<Employee> listarFuncionarios() {
+    public List<Employee> listEmployees() {
 	return repository.findAll();
 
     }
@@ -44,7 +44,7 @@ public class EmployeeService {
 	}
     }
     
-    public void increaseSalary(BigDecimal percentage) {
+    public void raiseSalary(BigDecimal percentage) {
 	List<Employee> employees = repository.findAll();
 	for (Employee employee : employees) {
 	    BigDecimal actualSalary = employee.getSalary();
@@ -83,7 +83,7 @@ public class EmployeeService {
     }
     
     
-    public Employee olderEmployee() {
+    public Employee oldestEmployee() {
 	List<Employee> employees = repository.findAll();
 	Employee older = null;
 	
