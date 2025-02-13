@@ -47,7 +47,7 @@ public class EmployeeController {
     
     @GetMapping("/birthdays")
     public List<Employee> listBirthdays(){
-	return service.listByBirthdate(Month.OCTOBER, Month.DECEMBER);
+	return service.listByBirthday(Month.OCTOBER, Month.DECEMBER);
     }
     
     @GetMapping("/older")

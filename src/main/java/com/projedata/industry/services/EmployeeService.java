@@ -69,13 +69,13 @@ public class EmployeeService {
 	return result;
     }
     
-    public List<Employee> listByBirthdate(Month... month){
+    public List<Employee> listByBirthday(Month... month){
 	List<Employee> employees = repository.findAll();
 	List<Employee> result = new ArrayList<>();
 	Set<Month> monthSet = new HashSet<>(Arrays.asList(month));
 	
 	for(Employee employee : employees) {
-	    if(monthSet.contains(employee.getBirthdate().getMonth())) {
+	    if(monthSet.contains(employee.getBirthday().getMonth())) {
 		result.add(employee);
 	    }
 	}
@@ -88,7 +88,7 @@ public class EmployeeService {
 	Employee older = null;
 	
 	for(Employee employee : employees) {
-	    if(older == null || employee.getBirthdate().isBefore(older.getBirthdate())) {
+	    if(older == null || employee.getBirthday().isBefore(older.getBirthday())) {
 		older = employee;
 	    }
 	}

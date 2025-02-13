@@ -6,23 +6,26 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Inheritance;
+import jakarta.persistence.InheritanceType;
 
 @Entity
+@Inheritance(strategy = InheritanceType.JOINED)
 public class People {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    private LocalDate birthdate;
+    private LocalDate birthday;
     
     public People() {
 	
     }
 
-    public People(String name, LocalDate birthdate) {
+    public People(String name, LocalDate birthday) {
 	this.name = name;
-	this.birthdate = birthdate;
+	this.birthday = birthday;
     }
 
     public Long getId() {
@@ -41,12 +44,12 @@ public class People {
         this.name = name;
     }
 
-    public LocalDate getBirthdate() {
-        return birthdate;
+    public LocalDate getBirthday() {
+        return birthday;
     }
 
-    public void setBirthdate(LocalDate birthdate) {
-        this.birthdate = birthdate;
+    public void setBirthdate(LocalDate birthday) {
+        this.birthday = birthday;
     }
     
     

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funcionários</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h2>Lista de Funcionários</h2>
+    <button onclick="listEmployees()">Carregar Funcionários</button>
+    <button onclick="raiseSalary()">Aumentar Salário (+10%)</button>
+    <button onclick="removeEmployee('João')">Remover João</button>
+    <button onclick="calculateTotalSalaries()">Total Salários</button>
+    <button onclick="listBirthdays()">Aniversariantes</button>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Data Nascimento</th>
+                <th>Salário</th>
+                <th>Função</th>
+            </tr>
+        </thead>
+        <tbody id="tabela-funcionarios"></tbody>
+    </table>
+    <p id="resultado"></p>
+    <script src="script.js"></script>
+</body>
+</html>
