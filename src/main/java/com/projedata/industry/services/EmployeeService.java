@@ -44,15 +44,20 @@ public class EmployeeService {
 	}
     }
     
+    public void raiseSalary() {
+	raiseSalary(new BigDecimal("0.10"));
+    }
+    
     public void raiseSalary(BigDecimal percentage) {
+	
 	List<Employee> employees = repository.findAll();
-	for (Employee employee : employees) {
+	
+	for(Employee employee : employees) {
 	    BigDecimal actualSalary = employee.getSalary();
 	    BigDecimal increase = actualSalary.multiply(BigDecimal.ONE.add(percentage));
 	    employee.setSalary(increase);
+	    repository.save(employee);
 	}
-	
-	repository.saveAll(employees);
     }
     
     public Map<String, List<Employee>> groupByFunction(){
@@ -118,13 +123,14 @@ public class EmployeeService {
 	return totalSalaries;
     }
 
-    public Map<String, String> calculateMinimumSalaries(BigDecimal minimumSalaries){
-	Map<String, String> result = new HashMap<>();
+    public Map<String, BigDecimal> calculateMinimumSalaries(BigDecimal minimumSalaries){
+	Map<String, BigDecimal> result = new HashMap<>();
 	List<Employee> employees = repository.findAll();
 	
 	for(Employee employee : employees) {
 	    BigDecimal salary = employee.getSalary();
-	    String salaryMinimumFormatted = decimalFormat.format(salary.divide(minimumSalaries, 2, RoundingMode.HALF_UP));
+	    BigDecimal salaryMinimumFormatted = salary.divide(minimumSalaries, 2, RoundingMode.HALF_UP);
+    
 	    result.put(employee.getName(), salaryMinimumFormatted);
 	}
 	
